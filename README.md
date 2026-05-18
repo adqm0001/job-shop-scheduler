@@ -22,28 +22,20 @@ g++ -std=c++17 -Wall -o scheduler main.cpp greedy.cpp priority_greedy.cpp preemp
 ## Input Format
 
 **jobs.csv**
-
+```
 job_id,priority,arrival_time,machine_id,process_time
 1,NORMAL,0,1,5
 1,NORMAL,0,2,3
-2,URGENT,2,3,4
-2,URGENT,2,1,6
-3,NORMAL,5,2,2
-3,NORMAL,5,3,5
-4,URGENT,3,1,3
-4,URGENT,3,2,4
-4,URGENT,3,3,2
-5,NORMAL,8,3,6
-5,NORMAL,8,1,4
-
-Each row is one task. Jobs with multiple tasks share the same `job_id` and tasks are processed in order.
+...
+```
 
 **machines.csv**
-
+```
 machine_id
 1
 2
 3
+```
 
 ## Algorithms
 
