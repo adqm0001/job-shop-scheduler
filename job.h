@@ -10,6 +10,7 @@ struct Task {
   int process_time = -1;
   int start_time = -1;
   int end_time = -1;
+  int remaining_time = -1;
 };
 class Job {
   public:

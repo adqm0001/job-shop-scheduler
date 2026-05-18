@@ -1,10 +1,16 @@
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 #include "job.h"
 #include "machine.h"
-#include "greedy.h"
+#include "priority_greedy.h"
 
-void greedy(std::vector<Job> &jobs, std::vector<Machine> &machines){
+void priority_greedy(std::vector<Job> &jobs, std::vector<Machine> &machines){
+  std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b) {
+    if (a.priority != b.priority) return a.priority > b.priority;
+    return a.arrival_time < b.arrival_time;
+  });
+
   std::unordered_map<int, Machine*> machine_map;
   for (Machine &m : machines) {
     machine_map[m.id] = &m;
@@ -20,3 +26,4 @@ void greedy(std::vector<Job> &jobs, std::vector<Machine> &machines){
     }
   }
 }
+
